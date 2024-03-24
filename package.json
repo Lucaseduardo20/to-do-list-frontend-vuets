@@ -1,0 +1,23 @@
+{
+  "name": "to-do-list-frontend-vuets",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vite-plugin-vuetify": "^2.0.3",
+    "vue": "^3.4.21",
+    "vuetify": "^3.5.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-vue-devtools": "^7.0.20",
+    "vue-tsc": "^2.0.6"
+  }
+}
