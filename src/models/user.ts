@@ -6,7 +6,7 @@ export default interface Credentials {
 export class User {
     public name: string;
     public email: string;
-    private password: string;
+    public password: string;
 
     constructor(name: string , user: string, password: string) {
         this.name = name
