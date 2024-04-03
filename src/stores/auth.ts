@@ -11,7 +11,7 @@ export const useUserStore = defineStore('authStore', {
             try{
                 const response = Api.post(baseURL, {email, password})
                 console.log('response :' , response)
-                this.user = response; 
+                this.user = response;
             }
             catch (err) {
                 console.log(err);

@@ -1,6 +1,7 @@
 export interface Form {
     fields: Array<Fields>;
     handleSubmit?: Function | void;
+    handleChange: Function | void;
 }
 
 export interface Fields {

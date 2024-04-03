@@ -14,8 +14,6 @@ const props = defineProps({
     }
 })
 
-console.log(props.form)
-
 </script>
 
 <template>
@@ -23,7 +21,7 @@ console.log(props.form)
         <v-container>
             <v-row v-for="item in props.form.fields">
                 <v-col :cols="item.cols">
-                    <v-text-field :id="item.id" variant="outlined" :label="item.label" :type="item.type"
+                    <v-text-field :on:change="props.form.handleChange" :id="item.id" variant="outlined" :label="item.label" :type="item.type"
                         :modelValue="item.model"></v-text-field>
                 </v-col>
             </v-row>

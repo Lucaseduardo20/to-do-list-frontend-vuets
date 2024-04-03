@@ -2,6 +2,14 @@
 // import { User } from '../models/user';
 import LoginForm from '../components/LoginForm.vue';
 import {Form} from '../types/Form';
+import {useUserStore} from '../stores/auth'
+import { ref } from 'vue';
+
+const authStore = useUserStore()
+
+console.log(authStore.user)
+
+const email = ref<string>('');
 
 const form: Form = {
     fields: [
@@ -9,19 +17,21 @@ const form: Form = {
             label: 'E-mail',
             type: 'text',
             id: 'email',
-            model: 'teste',
+            model: '',
             cols: 12
         },
         {
             label: 'Senha',
             type: 'password',
             id: 'password',
-            model: 'teste',
+            model: '',
             cols: 12
         }
     ],
-    handleSubmit: () => {console.log('bateu')}
+    handleSubmit: (value: any) => console.log(value.target[1].value) // tentando pegar o valor dos campos, essa forma talvez não seja boa prática.
 }
+
+
 
 </script>
 
@@ -34,7 +44,6 @@ const form: Form = {
 
 <style scoped>
 #login-container {
-    border: 10px solid black;
     width: 400px;
     height: 50vh;
     display: flex;
