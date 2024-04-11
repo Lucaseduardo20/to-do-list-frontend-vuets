@@ -12,22 +12,7 @@ const loginStore = useLoginStore()
 // const email = ref<string>('');
 
 const form: Form = {
-    fields: [
-        {
-            label: 'E-mail',
-            type: 'text',
-            id: 'email',
-            model: '',
-            cols: 12
-        },
-        {
-            label: 'Senha',
-            type: 'password',
-            id: 'password',
-            model: '',
-            cols: 12
-        }
-    ],
+    fields: loginStore.fields,
     handleSubmit: () => {
         const credentialsData: Credentials = {
             email: loginStore.fields[0].model,
