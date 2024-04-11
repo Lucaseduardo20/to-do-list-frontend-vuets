@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import Credentials from '../models/user';
-import { Form } from '../types/Form'
+import { Form } from '../types/Form';
 
 const props = defineProps({
     credentials: {
@@ -21,7 +21,7 @@ const props = defineProps({
         <v-container>
             <v-row v-for="item in props.form.fields">
                 <v-col :cols="item.cols">
-                    <v-text-field :on:change="props.form.handleChange" :id="item.id" variant="outlined" :label="item.label" :type="item.type"
+                    <v-text-field @change="props.form.handleChange" :id="item.id" variant="outlined" :label="item.label" :type="item.type"
                         :modelValue="item.model"></v-text-field>
                 </v-col>
             </v-row>
@@ -39,4 +39,4 @@ const props = defineProps({
 .field {
     width: 100%;
 }
-</style>
+</style>../stores/login

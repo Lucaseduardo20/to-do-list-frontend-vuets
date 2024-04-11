@@ -2,14 +2,14 @@
 // import { User } from '../models/user';
 import LoginForm from '../components/LoginForm.vue';
 import {Form} from '../types/Form';
-import {useUserStore} from '../stores/auth'
-import { ref } from 'vue';
+import {useLoginStore} from '../stores/login'
+import Credentials from '../models/user';
+import type { Fields } from '../types/Form';
+// import { ref } from 'vue';
 
-const authStore = useUserStore()
+const loginStore = useLoginStore()
 
-console.log(authStore.user)
-
-const email = ref<string>('');
+// const email = ref<string>('');
 
 const form: Form = {
     fields: [
@@ -28,7 +28,29 @@ const form: Form = {
             cols: 12
         }
     ],
-    handleSubmit: (value: any) => console.log(value.target[1].value) // tentando pegar o valor dos campos, essa forma talvez não seja boa prática.
+    handleSubmit: () => {
+        const credentialsData: Credentials = {
+            email: loginStore.fields[0].model,
+            password: loginStore.fields[1].model
+        }
+
+        loginStore.login(credentialsData)
+    },
+
+    handleChange: (value: Event) => {
+    const target = value.target as HTMLInputElement
+    const updatedFields: Fields[] = loginStore.fields.map((field: Fields) => {
+        if(field.id === target.id) {
+           return {
+            ...field,
+            model: target.value
+           }
+        } else {
+            return field
+        }
+    });
+    loginStore.setFields(updatedFields)
+}
 }
 
 
@@ -50,4 +72,4 @@ const form: Form = {
     flex-direction: column;
     align-items: center;
 }
-</style>
+</style>../stores/login
