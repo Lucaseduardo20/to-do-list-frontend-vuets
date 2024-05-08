@@ -13,13 +13,13 @@ const loginStore = useLoginStore()
 
 const form: Form = {
     fields: loginStore.fields,
-    handleSubmit: () => {
+    handleSubmit: async () => {
         const credentialsData: Credentials = {
-            email: loginStore.fields[0].model,
-            password: loginStore.fields[1].model
+            "email" : loginStore.fields[0].model,
+            "password" : loginStore.fields[1].model
         }
 
-        loginStore.login(credentialsData)
+        await loginStore.login(credentialsData)
     },
 
     handleChange: (value: Event) => {

@@ -28,7 +28,7 @@ export const useLoginStore = defineStore('loginStore', {
         async login(credentials: Credentials) {
             const {email, password} = credentials
             try{
-                const response = Api.post(baseURL, {email, password})
+                const response = Api.post('/login', {email, password})
                 this.user = response;
             }
             catch (err) {

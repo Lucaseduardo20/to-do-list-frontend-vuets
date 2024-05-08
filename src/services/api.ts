@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURLs = {
-    development: 'http://localhost:3000/api',
+    development: 'http://localhost:8000/api',
     production: 'https://production.com/api'
 };
 
