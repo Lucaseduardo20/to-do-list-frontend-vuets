@@ -1,23 +1,18 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import Credentials from '../models/user';
 import { Form } from '../types/Form';
 
-const props = defineProps({
-    credentials: {
-        type: Object as () => Credentials,
-        default: ''
-    },
-    form: {
-        type: Object as () => Form,
-        default: []
-    }
-})
+    const props = defineProps({
+        form: {
+            type: Object as () => Form,
+            default: []
+        }
+    })
 
+    console.log(props.form)
 </script>
-
 <template>
-    <v-form @submit.prevent="props.form.handleSubmit" id="form">
+    <v-form id="register-form">
         <v-container>
             <v-row v-for="item in props.form.fields">
                 <v-col :cols="item.cols">
@@ -30,9 +25,8 @@ const props = defineProps({
         </v-container>
     </v-form>
 </template>
-
 <style scoped>
-#form {
+    #register-form {
     width: 90%;
     height: 50%;
 }
@@ -40,4 +34,4 @@ const props = defineProps({
 .field {
     width: 100%;
 }
-</style>../stores/login
+</style>

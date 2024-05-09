@@ -1,15 +1,12 @@
 <script setup lang="ts">
-// import { User } from '../models/user';
 import LoginForm from '../components/LoginForm.vue';
 import {Form} from '../types/Form';
 import {useLoginStore} from '../stores/login'
 import Credentials from '../models/user';
 import type { Fields } from '../types/Form';
-// import { ref } from 'vue';
 
 const loginStore = useLoginStore()
 
-// const email = ref<string>('');
 
 const form: Form = {
     fields: loginStore.fields,

@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import Login from './views/Login.vue'
+
 </script>
 
 <template>
-	<Login>
-
-	</Login>
+  <router-view />
 </template>
 
 <style scoped>
