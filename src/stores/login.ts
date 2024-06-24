@@ -1,8 +1,7 @@
 import { defineStore } from "pinia";
 import { Api, baseURL } from "../services/api";
 import type { Fields } from "../types/Form";
-import type Credentials from "../models/user";
-
+import Login from "../types/Login";
 
 export const useLoginStore = defineStore('loginStore', {
     state: () => ({
@@ -25,7 +24,7 @@ export const useLoginStore = defineStore('loginStore', {
         user: {}
     }),
     actions: {
-        async login(credentials: Credentials) {
+        async login(credentials: Login) {
             const {email, password} = credentials
             try{
                 const response = Api.post('/login', {email, password})

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import Credentials from '../models/user';
 import { Form } from '../types/Form';
+import Login from '../types/Login';
 
 const props = defineProps({
     credentials: {
-        type: Object as () => Credentials,
+        type: Object as () => Login,
         default: ''
     },
     form: {

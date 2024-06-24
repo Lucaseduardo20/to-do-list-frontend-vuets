@@ -1,8 +1,7 @@
 import { defineStore } from "pinia";
 import { Api, baseURL } from "../services/api";
 import type { Fields } from "../types/Form";
-import type Credentials from "../models/user";
-
+import Register from "../types/Register";
 
 export const useRegisterStore = defineStore('registerStore', {
     state: () => ({
@@ -32,11 +31,12 @@ export const useRegisterStore = defineStore('registerStore', {
         user: {}
     }),
     actions: {
-        async login(credentials: Credentials) {
-            const {email, password} = credentials
+        async register(registerData: Register) {
+            const {name, email, password} = registerData
             try{
-                const response = Api.post('/login', {email, password})
-                this.user = response;
+                const response = Api.post('/register', {name, email, password})
+
+                return response;
             }
             catch (err) {
                 return err;

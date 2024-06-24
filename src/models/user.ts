@@ -1,8 +1,3 @@
-export default interface Credentials {
-    email: string,
-    password: string
-}
-
 export class User {
     public name: string;
     public email: string;

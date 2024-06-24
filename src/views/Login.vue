@@ -2,8 +2,8 @@
 import LoginForm from '../components/LoginForm.vue';
 import {Form} from '../types/Form';
 import {useLoginStore} from '../stores/login'
-import Credentials from '../models/user';
 import type { Fields } from '../types/Form';
+import Login from '../types/Login';
 
 const loginStore = useLoginStore()
 
@@ -11,7 +11,7 @@ const loginStore = useLoginStore()
 const form: Form = {
     fields: loginStore.fields,
     handleSubmit: async () => {
-        const credentialsData: Credentials = {
+        const credentialsData: Login = {
             "email" : loginStore.fields[0].model,
             "password" : loginStore.fields[1].model
         }

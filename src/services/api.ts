@@ -9,5 +9,4 @@ export const baseURL = baseURLs.development;
 
 export const Api = axios.create({
     baseURL: baseURL,
-    // outras configurações do axios
   });
