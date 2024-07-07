@@ -8,8 +8,6 @@ import { AxiosResponse } from 'axios';
 import {useRouter } from 'vue-router';
 
 const loginStore = useLoginStore()
-
-
 const router = useRouter()
 
 const form: Form = {
@@ -26,7 +24,7 @@ const form: Form = {
             return alert('Failed Authentication');
         }
 
-        router.push('/register');
+        router.push('/home');
     },
 
     handleChange: (value: Event) => {
