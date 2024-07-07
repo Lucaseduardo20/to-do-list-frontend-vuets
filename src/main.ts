@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, markRaw } from 'vue'
 import './style.css'
 import App from './App.vue'
 
@@ -11,6 +11,10 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
 const pinia = createPinia()
+
+pinia.use(({ store }) => {
+    store.router = markRaw(router);
+}) 
 
 const vuetify = createVuetify({
     components,

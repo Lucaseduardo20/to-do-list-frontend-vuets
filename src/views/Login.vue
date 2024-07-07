@@ -4,9 +4,13 @@ import {Form} from '../types/Form';
 import {useLoginStore} from '../stores/login'
 import type { Fields } from '../types/Form';
 import Login from '../types/Login';
+import { AxiosResponse } from 'axios';
+import {useRouter } from 'vue-router';
 
 const loginStore = useLoginStore()
 
+
+const router = useRouter()
 
 const form: Form = {
     fields: loginStore.fields,
@@ -16,7 +20,13 @@ const form: Form = {
             "password" : loginStore.fields[1].model
         }
 
-        await loginStore.login(credentialsData)
+        const response = await loginStore.login(credentialsData) as AxiosResponse
+
+        if(response?.status !== 200) {
+            return alert('Failed Authentication');
+        }
+
+        router.push('/register');
     },
 
     handleChange: (value: Event) => {
@@ -54,4 +64,4 @@ const form: Form = {
     flex-direction: column;
     align-items: center;
 }
-</style>../stores/login
+</style>

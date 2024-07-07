@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { Api, baseURL } from "../services/api";
 import type { Fields } from "../types/Form";
 import Login from "../types/Login";
+import { AxiosResponse } from "axios";
 
 export const useLoginStore = defineStore('loginStore', {
     state: () => ({
@@ -27,8 +28,10 @@ export const useLoginStore = defineStore('loginStore', {
         async login(credentials: Login) {
             const {email, password} = credentials
             try{
-                const response = Api.post('/login', {email, password})
+                const response: AxiosResponse = await Api.post('/login', {email, password})
                 this.user = response;
+                
+                return response
             }
             catch (err) {
                 return err;

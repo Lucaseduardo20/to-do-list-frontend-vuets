@@ -20,6 +20,8 @@ import { Form } from '../types/Form';
                 </v-col>
             </v-row>
             <v-btn color="success" class="mt-2" text="cadastrar" type="submit" block></v-btn>
+            <v-btn color="primary" class="mt-2" text="Login" type="submit" block @click="() => {$router.push('/')}"></v-btn>
+
         </v-container>
     </v-form>
 </template>

@@ -16,7 +16,7 @@ const registerForm: Form = {
             'password': registerForm.fields[2].model
         };
 
-        await registerStore.register(registerData)
+        await registerStore.register(registerData);
     },
 
     handleChange: (value: Event) => {
