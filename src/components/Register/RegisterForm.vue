@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import { Form } from '../types/Form';
+import { Form } from '../../types/Form';
 
     const props = defineProps({
         form: {

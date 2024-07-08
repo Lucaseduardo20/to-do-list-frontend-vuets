@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LoginForm from '../components/LoginForm.vue';
+import LoginForm from '../components/Login/LoginForm.vue';
 import {Form} from '../types/Form';
 import {useLoginStore} from '../stores/login'
 import type { Fields } from '../types/Form';

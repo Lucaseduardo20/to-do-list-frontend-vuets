@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RegisterForm from '../components/RegisterForm.vue';
+import RegisterForm from '../components/Register/RegisterForm.vue';
 import { Fields, Form } from '../types/Form';
 import { useRegisterStore } from '../stores/register';
 import Register from '../types/Register';

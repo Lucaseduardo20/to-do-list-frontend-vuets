@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import { Form } from '../types/Form';
-import Login from '../types/Login';
+import { Form } from '../../types/Form';
+import Login from '../../types/Login';
 
 const props = defineProps({
     credentials: {
