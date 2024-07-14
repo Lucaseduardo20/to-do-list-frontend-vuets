@@ -29,7 +29,7 @@ export const useRegisterStore = defineStore('registerStore', {
                 cols: 12
             }
         ],
-        user: {
+        registerData: {
             name: '',
             email: '',
             password: ''

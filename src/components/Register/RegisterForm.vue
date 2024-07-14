@@ -11,7 +11,7 @@ import {useRegisterStore} from '../../stores/register'
             default: []
         }
     })
-    
+
 </script>
 <template>
     <v-form @submit.prevent="props.form.handleSubmit" id="register-form">
@@ -19,7 +19,7 @@ import {useRegisterStore} from '../../stores/register'
             <v-row v-for="item in props.form.fields">
                 <v-col :cols="item.cols">
                     <v-text-field :id="item.id" variant="outlined" :label="item.label" :type="item.type"
-                         v-model="registerStore.user[item.model]" ></v-text-field>
+                         v-model="registerStore.registerData[item.model]" ></v-text-field>
                 </v-col>
             </v-row>
             <v-btn color="success" class="mt-2" text="cadastrar" type="submit" block></v-btn>

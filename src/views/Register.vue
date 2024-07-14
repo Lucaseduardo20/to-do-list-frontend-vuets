@@ -11,9 +11,9 @@ const registerForm: Form = {
 
     handleSubmit: async () => {
         const newUser: Register = {
-            name: registerStore.user.name,
-            email: registerStore.user.email,
-            password: registerStore.user.password
+            name: registerStore.registerData.name,
+            email: registerStore.registerData.email,
+            password: registerStore.registerData.password
         }
         await registerStore.register(newUser);
     },

@@ -22,7 +22,7 @@ const props = defineProps({
             <v-row v-for="item in props.form.fields">
                 <v-col :cols="item.cols">
                     <v-text-field @change="props.form.handleChange" :id="item.id" variant="outlined" :label="item.label" :type="item.type"
-                        :modelValue="item.model"></v-text-field>
+                        v-model="item.model"></v-text-field>
                 </v-col>
             </v-row>
             <v-btn color="success" class="mt-2" text="ENTRAR" type="submit" block></v-btn>
