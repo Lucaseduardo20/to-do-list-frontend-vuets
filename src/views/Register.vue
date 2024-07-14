@@ -20,9 +20,8 @@ const registerForm: Form = {
     },
 
     handleChange: (value: Event) => {
-        console.log(value);
-    const target = value.target as HTMLInputElement
-    const updatedFields: Fields[] = registerStore.fields.map((field: Fields) => {
+        const target = value.target as HTMLInputElement
+        const updatedFields: Fields[] = registerStore.fields.map((field: Fields) => {
         if(field.id === target.id) {
            return {
             ...field,

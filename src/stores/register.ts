@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
-import { Api, baseURL } from "../services/api";
+import { Api } from "../services/api";
 import type { Fields } from "../types/Form";
 import Register from "../types/Register";
-import { useRoute, useRouter } from "vue-router";
+import {useRouter } from "vue-router";
 
 export const useRegisterStore = defineStore('registerStore', {
     state: () => ({
