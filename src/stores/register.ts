@@ -11,25 +11,29 @@ export const useRegisterStore = defineStore('registerStore', {
                 label: 'Nome',
                 type: 'text',
                 id: 'nome',
-                model: '',
+                model: 'name',
                 cols: 12
             },
             {
                 label: 'E-mail',
                 type: 'text',
                 id: 'email',
-                model: '',
+                model: 'email',
                 cols: 12
             },
             {
                 label: 'Senha',
                 type: 'password',
                 id: 'password',
-                model: '',
+                model: 'password',
                 cols: 12
             }
         ],
-        user: {}
+        user: {
+            name: '',
+            email: '',
+            password: ''
+        } as Record<string, string>
     }),
     actions: {
         async register(registerData: Register) {
@@ -45,6 +49,7 @@ export const useRegisterStore = defineStore('registerStore', {
         },
 
         setFields(payload: Fields[]) {
+            // console.log(payload);
            this.fields = payload 
         },
 
