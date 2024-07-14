@@ -2,6 +2,7 @@
 import { defineProps } from 'vue';
 import { Form } from '../../types/Form';
 import Login from '../../types/Login';
+import {useLoginStore} from '../../stores/login'
 
 const props = defineProps({
     credentials: {
@@ -14,6 +15,8 @@ const props = defineProps({
     }
 })
 
+const loginStore = useLoginStore();
+
 </script>
 
 <template>
@@ -22,7 +25,7 @@ const props = defineProps({
             <v-row v-for="item in props.form.fields">
                 <v-col :cols="item.cols">
                     <v-text-field @change="props.form.handleChange" :id="item.id" variant="outlined" :label="item.label" :type="item.type"
-                        v-model="item.model"></v-text-field>
+                        v-model="loginStore.loginData[item.model]"></v-text-field>
                 </v-col>
             </v-row>
             <v-btn color="success" class="mt-2" text="ENTRAR" type="submit" block></v-btn>

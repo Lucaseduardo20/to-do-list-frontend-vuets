@@ -11,17 +11,21 @@ export const useLoginStore = defineStore('loginStore', {
                 label: 'E-mail',
                 type: 'text',
                 id: 'email',
-                model: '',
+                model: 'email',
                 cols: 12
             },
             {
                 label: 'Senha',
                 type: 'password',
                 id: 'password',
-                model: '',
+                model: 'password',
                 cols: 12
             }
         ],
+        loginData: {
+            email: '',
+            password: ''
+        } as Record<string, string>,
         user: {}
     }),
     actions: {

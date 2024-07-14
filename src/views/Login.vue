@@ -2,23 +2,22 @@
 import LoginForm from '../components/Login/LoginForm.vue';
 import {Form} from '../types/Form';
 import {useLoginStore} from '../stores/login'
-import type { Fields } from '../types/Form';
-import Login from '../types/Login';
 import { AxiosResponse } from 'axios';
 import {useRouter } from 'vue-router';
+import type {Fields} from '../types/Form'
+import Login from '../types/Login'
 
 const loginStore = useLoginStore()
 const router = useRouter()
 
 const form: Form = {
-    fields: loginStore.fields,
+    fields: loginStore.fields as Fields[],
     handleSubmit: async () => {
-        const credentialsData: Login = {
-            "email" : loginStore.fields[0].model,
-            "password" : loginStore.fields[1].model
+        const loginData: Login  = {
+            email: loginStore.loginData.email,
+            password: loginStore.loginData.password
         }
-
-        const response = await loginStore.login(credentialsData) as AxiosResponse
+        const response = await loginStore.login(loginData) as AxiosResponse
 
         if(response?.status !== 200) {
             return alert('Failed Authentication');
@@ -26,21 +25,6 @@ const form: Form = {
 
         router.push('/home');
     },
-
-    handleChange: (value: Event) => {
-    const target = value.target as HTMLInputElement
-    const updatedFields: Fields[] = loginStore.fields.map((field: Fields) => {
-        if(field.id === target.id) {
-           return {
-            ...field,
-            model: target.value
-           }
-        } else {
-            return field
-        }
-    });
-    loginStore.setFields(updatedFields)
-}
 }
 
 
