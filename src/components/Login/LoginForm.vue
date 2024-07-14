@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import { Form } from '../../types/Form';
-import Login from '../../types/Login';
 import {useLoginStore} from '../../stores/login'
 
 const props = defineProps({
-    credentials: {
-        type: Object as () => Login,
-        default: ''
-    },
     form: {
         type: Object as () => Form,
         default: []
