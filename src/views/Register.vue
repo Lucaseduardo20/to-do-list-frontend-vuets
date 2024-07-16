@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RegisterForm from '../components/Register/RegisterForm.vue';
-import { Fields, Form } from '../types/Form';
+import { Form } from '../types/Form';
 import { useRegisterStore } from '../stores/register';
 import Register from '../types/Register';
 
@@ -10,29 +10,13 @@ const registerForm: Form = {
     fields: registerStore.fields,
 
     handleSubmit: async () => {
-        const registerData: Register = {
-            'name': registerStore.fields[0].model,
-            'email': registerStore.fields[1].model,
-            'password': registerForm.fields[2].model
-        };
-
-        await registerStore.register(registerData);
-    },
-
-    handleChange: (value: Event) => {
-        const target = value.target as HTMLInputElement
-        const updatedFields: Fields[] = registerStore.fields.map((field: Fields) => {
-        if(field.id === target.id) {
-           return {
-            ...field,
-            model: target.value
-           }
-        } else {
-            return field
+        const newUser: Register = {
+            name: registerStore.registerData.name,
+            email: registerStore.registerData.email,
+            password: registerStore.registerData.password
         }
-    });
-    registerStore.setFields(updatedFields);
-    }
+        await registerStore.register(newUser);
+    },
 }
 
 </script>

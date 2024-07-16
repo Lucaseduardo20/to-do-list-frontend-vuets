@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import { Form } from '../../types/Form';
+import {useRegisterStore} from '../../stores/register'
+
+    const registerStore = useRegisterStore()
 
     const props = defineProps({
         form: {
@@ -15,8 +18,8 @@ import { Form } from '../../types/Form';
         <v-container>
             <v-row v-for="item in props.form.fields">
                 <v-col :cols="item.cols">
-                    <v-text-field @change="props.form.handleChange" :id="item.id" variant="outlined" :label="item.label" :type="item.type"
-                         :v-model:modelValue="item.model" ></v-text-field>
+                    <v-text-field :id="item.id" variant="outlined" :label="item.label" :type="item.type"
+                         v-model="registerStore.registerData[item.model]" ></v-text-field>
                 </v-col>
             </v-row>
             <v-btn color="success" class="mt-2" text="cadastrar" type="submit" block></v-btn>
